@@ -3,5 +3,11 @@
 class TitleScene :
     public SceneBase
 {
+public:
+    TitleScene();
+    ~TitleScene();
+
+    SceneBase* Update(float _deltaTime);
+    void Draw();
 };
 

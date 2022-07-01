@@ -14,7 +14,9 @@ using namespace std;
 #include<fstream> 
 #include "DxLib.h"
 
-
+#include "SceneBase.h"
+#include "GameScene.h"
+#include "TitleScene.h"
 
 #include "AnimationController.h"
 #include "HitChecker.h"

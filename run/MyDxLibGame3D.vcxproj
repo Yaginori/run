@@ -164,11 +164,11 @@
   <ItemGroup>
     <ClCompile Include="AnimationController.cpp" />
     <ClCompile Include="AssetManager.cpp" />
-    <ClCompile Include="BatteleScene.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Floor.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="HitChecker.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -185,7 +185,6 @@
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</ForcedIncludeFiles>
     </ClCompile>
     <ClCompile Include="SceneBase.cpp" />
-    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="ObstructStatic.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -200,16 +199,15 @@
   <ItemGroup>
     <ClInclude Include="AnimationController.h" />
     <ClInclude Include="AssetManager.h" />
-    <ClInclude Include="BatteleScene.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Floor.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameScene.h" />
     <ClInclude Include="HitChecker.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SceneBase.h" />
-    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="StageManager.h" />
     <ClInclude Include="ObstructStatic.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
