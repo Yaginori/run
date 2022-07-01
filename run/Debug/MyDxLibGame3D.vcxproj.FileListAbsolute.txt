@@ -1,0 +1,9 @@
+C:\Users\kaiku\OneDrive\デスクトップ\AssetManager\Debug\MyDxLibGame3D.exe
+C:\Users\kaiku\OneDrive\デスクトップ\AssetManager\Debug\MyDxLibGame3D.pdb
+C:\Users\kaiku\OneDrive\デスクトップ\run\Debug\MyDxLibGame3D.exe
+C:\Users\kaiku\OneDrive\デスクトップ\run\Debug\MyDxLibGame3D.pdb
+C:\Users\kaiku\OneDrive\デスクトップ\My game\run\Debug\MyDxLibGame3D.exe
+C:\Users\kaiku\OneDrive\デスクトップ\My game\run\Debug\MyDxLibGame3D.pdb
+C:\Users\student\Desktop\run\Debug\MyDxLibGame3D.exe
+C:\Users\kaiku\OneDrive\デスクトップ\今使ってるもの\run\Debug\MyDxLibGame3D.exe
+C:\Users\kaiku\OneDrive\デスクトップ\今使ってるもの\run\Debug\MyDxLibGame3D.pdb
