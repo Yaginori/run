@@ -1,0 +1,88 @@
+■Map
+　〇ReadMapData 
+　  ・string fileName = "data/mapData/stage" + std::to_string(inStageNum) + ".csv";
+　　　→ファイル先をstringで管理。わかりやすいし簡潔！
+
+ 
+
+　　・ifstream
+　　　→cinと似たもの。thisしか受け付けないとか。
+      →【https://www.delftstack.com/ja/howto/cpp/how-to-read-a-file-line-by-line-cpp/】
+      →#include<fstream> が必要らしい
+
+
+
+    ・istringstream
+　　　→文字列から数値を抜き出せるぽい
+
+
+
+　　・stoi
+　　　→文字列を数値として読み取ってintの値に変換
+
+
+
+    ・getline
+　　　→2パターンの使い方がある
+
+　　　　・文字列を分割。
+　　　　　→while( getline( 分割したい文字列 , 分割した文字列を格納する変数 , '何で区切るか’));
+
+　　　　・ aをbに格納
+　　　　　→ getline(a, b);
+
+　　　→【https://qiita.com/tarokun/items/526c6d65d5b3024d6caa】
+　　　→【https://qiita.com/takashi_rits/items/0f2a8befaea07945d0e2】
+
+
+
+　　＠switchのやつ、０から２の間を繰り返し出す仕様になってる
+　　　→%（乗除）
+　　　　→「10÷3 = 商3 余り1」なので、10%3 は 1 と計算される
+
+　　　→switch【https://itsakura.com/cpp-switch】
+
+
+
+    ◎最後の計算
+　　　→kは0～17までしか行かない（MAP_X_NUMの数値が18だから）
+　　　→jも同様の動きをする
+　　　→案外全部回ってんのかも。ブレイクポイント置いて見て
+　　
+　　
+◆StageManagerで回してるものをMap.cppに移そう。
+→先輩のはどんな流れで動いてる？観察からしてみようか
+　○マップの読み込みはBatteleSceneにあった。
+
+◆Sceneクラス作った方がいい。
+→とりあえずStageManagerのままで動くか確認して、それからMapのやつ打ち込もうか。
+→SceneBase
+  SceneManager（defenceGameで言うGameクラスにあたるかも）　
+  TitleScene 
+  GameScene
+→全部作った！とりあえずゲームシーンにぶち込もうか
+　player
+  map
+  animation
+  
+
+
+・Sceneの切り替えにクラス作ってるの参考にしたいなnextとかendとかいろいろreturnしてる
+→SceneManagerとか作った方がいい
+→
+
+
+
+
+■記号の説明
+・→単語
+＠→処理に対する説明
+
+modelもまたひとまとめにされてた…
+
+
+
+■別のやつ
+playlist【https://www.youtube.com/watch?v=g17Gg34tW_k】
+playlist 八木君【https://www.youtube.com/watch?v=aTJhNWiwMY8】
+　　　　　　　 【https://www.youtube.com/watch?v=qM2srN36nhU】

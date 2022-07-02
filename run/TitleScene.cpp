@@ -3,7 +3,9 @@
 
 TitleScene::TitleScene()
 	:SceneBase(SceneBase::Scene::e_title)
+	, m_SceneTestCnt(0)
 {
+	m_ScenetestGraph = LoadGraph("data/sceneTest/TitleYagi.png");
 
 }
 
@@ -15,13 +17,23 @@ SceneBase* TitleScene::Update(float _deltaTime)
 {
 	if (CheckHitKey(KEY_INPUT_SPACE))
 	{
-		return new GameScene();
-
+		m_SceneTestCnt++;
 	}
-	return this;
+
+	if (m_SceneTestCnt > 0)
+	{
+		return new GameScene();
+	}
+	else
+	{
+		m_SceneTestCnt = 0;
+		return this; 
+	}
 
 }
 
 void TitleScene::Draw()
 {
+	DrawGraph(0, 0, m_ScenetestGraph, TRUE);
+
 }

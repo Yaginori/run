@@ -15,5 +15,8 @@ private:
     class Map* m_map;
     class AnimationController* m_animationController;
 
+    int m_ScenetestGraph;
+    int m_SceneTestCnt;
+
 };
 

@@ -185,6 +185,7 @@
       <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</ForcedIncludeFiles>
     </ClCompile>
     <ClCompile Include="SceneBase.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="StageManager.cpp" />
     <ClCompile Include="ObstructStatic.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
@@ -208,6 +209,7 @@
     <ClInclude Include="Map.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="SceneBase.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="StageManager.h" />
     <ClInclude Include="ObstructStatic.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>

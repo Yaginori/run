@@ -9,5 +9,9 @@ public:
 
     SceneBase* Update(float _deltaTime);
     void Draw();
+
+private:
+   int m_ScenetestGraph;
+   int m_SceneTestCnt;
 };
 

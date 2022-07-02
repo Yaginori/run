@@ -22,19 +22,19 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	// 現在のシーンを生成
 	SceneBase* nowScene = new TitleScene();
 
-	// プレイヤーを生成.
-	Player* player = new Player();
+	//// プレイヤーを生成.
+	//Player* player = new Player();
 
-	// カメラを生成.
-	Camera* camera = new Camera();
+	//// カメラを生成.
+	//Camera* camera = new Camera();
 
 
-	// 障害物を生成.
-	StageManager* stageManager = new StageManager();
-	stageManager->CreateStages();
+	//// 障害物を生成.
+	//StageManager* stageManager = new StageManager();
+	//stageManager->CreateStages();
 
-	Enemy* enemy = new Enemy();
-	enemy->CreateEnemys();
+	//Enemy* enemy = new Enemy();
+	//enemy->CreateEnemys();
 
 	// 時間計測
 	int nowTime  = GetNowCount();
@@ -61,19 +61,19 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 			nowScene = tmpScene;
 		}
 
-		// プレイヤー制御.
-		player->Update(deltaTime);
+		//// プレイヤー制御.
+		//player->Update(deltaTime);
 
-		// カメラ制御.
-		camera->Update(*player);
+		//// カメラ制御.
+		//camera->Update(*player);
 
-		// 障害物制御.
-		stageManager->Update(deltaTime);
+		//// 障害物制御.
+		//stageManager->Update(deltaTime);
 
-		enemy->Update(deltaTime);
+		//enemy->Update(deltaTime);
 
-		// ヒットのチェック.
-		HitChecker::Check(*player, *enemy);
+		//// ヒットのチェック.
+		//HitChecker::Check(*player, *enemy);
 
 		// 画面を初期化する
 		ClearDrawScreen();
@@ -84,13 +84,13 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		// 描画
 		nowScene->Draw();
 
-		// プレイヤー描画.
-		player->Draw();
+		//// プレイヤー描画.
+		//player->Draw();
 
-		// 障害物描画.
-		stageManager->Draw();
+		//// 障害物描画.
+		//stageManager->Draw();
 
-		enemy->Draw();
+		//enemy->Draw();
 
 		// 裏画面の内容を表画面に反映させる
 		ScreenFlip();
@@ -101,18 +101,18 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	// シーン削除
 	delete(nowScene);
 
-	// プレイヤーを削除.
-	delete(player);
+	//// プレイヤーを削除.
+	//delete(player);
 
-	// カメラを削除.
-	delete(camera);
+	//// カメラを削除.
+	//delete(camera);
 
-	// 障害物を削除.
-	stageManager->DestroyStages();
-	delete(stageManager);
+	//// 障害物を削除.
+	//stageManager->DestroyStages();
+	//delete(stageManager);
 
-	enemy->DestrooyEnemys();
-	delete(enemy);
+	//enemy->DestrooyEnemys();
+	//delete(enemy);
 
 	// ＤＸライブラリの後始末
 	DxLib_End();
