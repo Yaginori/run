@@ -15,8 +15,10 @@ using namespace std;
 #include "DxLib.h"
 
 #include "SceneBase.h"
-#include "GameScene.h"
+#include "SceneManager.h"
 #include "TitleScene.h"
+#include "GameScene.h"
+#include "ResultScene.h"
 
 #include "AnimationController.h"
 #include "HitChecker.h"

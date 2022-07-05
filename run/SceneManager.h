@@ -2,11 +2,16 @@
 class SceneManager
 {
 public:
-	SceneManager(SceneBase::Scene in_nowScene);
+	SceneManager();
 	~SceneManager();
-	void SceneChange();
+	void Update(float _deltaTime);       // 制御
+	void Draw();         // 描画
+	void Sound();        // 音
+
+	void SetScene(SceneBase* in_scene);  // シーンをセット
 
 private:
-	int m_testSceneCnt;
+	SceneBase* m_nowScene;
+
 };
 

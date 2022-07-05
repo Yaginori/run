@@ -60,11 +60,9 @@
   SceneManager（defenceGameで言うGameクラスにあたるかも）　
   TitleScene 
   GameScene
-→全部作った！とりあえずゲームシーンにぶち込もうか
-　player
-  map
-  animation
-  
+→全部作った！八木さんの画像をもとに簡単なシーンマネージャー作ろうか
+　・シーンチェンジするにはポインタ渡すべき？タグ渡すべき？
+→カウントじゃない、シーンチェンジフラグ作ってる
 
 
 ・Sceneの切り替えにクラス作ってるの参考にしたいなnextとかendとかいろいろreturnしてる
@@ -86,3 +84,12 @@ modelもまたひとまとめにされてた…
 playlist【https://www.youtube.com/watch?v=g17Gg34tW_k】
 playlist 八木君【https://www.youtube.com/watch?v=aTJhNWiwMY8】
 　　　　　　　 【https://www.youtube.com/watch?v=qM2srN36nhU】
+
+
+糖質
+２４
+３０
+１０
+２３
+
+87

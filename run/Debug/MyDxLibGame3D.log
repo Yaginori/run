@@ -1,10 +1,4 @@
-﻿  SceneManager.cpp
+﻿  ResultScene.cpp
 C:\Users\kaiku\OneDrive\デスクトップ\run\run\ObstructStatic.h(13,1): warning C4005: 'STAGE_SPACE_D': マクロが再定義されました。
 C:\Users\kaiku\OneDrive\デスクトップ\run\run\StageManager.h(11): message : 'STAGE_SPACE_D' の以前の定義を確認してください
-C:\Users\kaiku\OneDrive\デスクトップ\run\run\SceneManager.cpp(22,3): error C2562: 'SceneManager::SceneChange': 関数は 'void' 型として宣言されていますが、値を返しました。
-C:\Users\kaiku\OneDrive\デスクトップ\run\run\SceneManager.cpp(13): message : 'SceneManager::SceneChange' の宣言を確認してください
-C:\Users\kaiku\OneDrive\デスクトップ\run\run\SceneManager.cpp(27,3): error C2562: 'SceneManager::SceneChange': 関数は 'void' 型として宣言されていますが、値を返しました。
-C:\Users\kaiku\OneDrive\デスクトップ\run\run\SceneManager.cpp(13): message : 'SceneManager::SceneChange' の宣言を確認してください
-  TitleScene.cpp
-C:\Users\kaiku\OneDrive\デスクトップ\run\run\ObstructStatic.h(13,1): warning C4005: 'STAGE_SPACE_D': マクロが再定義されました。
-C:\Users\kaiku\OneDrive\デスクトップ\run\run\StageManager.h(11): message : 'STAGE_SPACE_D' の以前の定義を確認してください
+  MyDxLibGame3D.vcxproj -> C:\Users\kaiku\OneDrive\デスクトップ\run\run\Debug\MyDxLibGame3D.exe

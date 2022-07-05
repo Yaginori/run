@@ -1,38 +1,70 @@
 #include "pch.h"
 #include "GameScene.h"
 
+//------------------------------------------------
+// コンストラクタ
+//-------------------------------------------------
 GameScene::GameScene()
 	:SceneBase(SceneBase::Scene::e_game)
-	, m_SceneTestCnt(0)
+	, m_SceneChangeFlag(false)
 {
-	m_ScenetestGraph=LoadGraph("data/sceneTest/GameYagi.png");
+	m_player = new Player();
+	m_map = new Map();
+	m_camera = new Camera();
 }
 
+//------------------------------------------------
+// デストラクタ
+//-------------------------------------------------
 GameScene::~GameScene()
 {
+	delete(m_player);
+	delete(m_map);
+	delete(m_camera);
 }
 
+//------------------------------------------------
+// 制御
+//-------------------------------------------------
 SceneBase* GameScene::Update(float _deltaTime)
 {
+	m_player->Update(_deltaTime);
+	m_map->Update();
+	m_camera->Update(*m_player);
 
-
-	if (CheckHitKey(KEY_INPUT_SPACE))
+	if (CheckHitKey(KEY_INPUT_A))
 	{
-		m_SceneTestCnt++;
+		m_SceneChangeFlag = true;
 	}
 
-	if (m_SceneTestCnt > 0)
+	if (m_SceneChangeFlag)
 	{
-		return new TitleScene();
+		return new ResultScene();
 	}
 	else
 	{
-		m_SceneTestCnt = 0;
 		return this;
 	}
+
+
+	return this;
 }
 
+//------------------------------------------------
+// 描画
+//-------------------------------------------------
 void GameScene::Draw()
 {
-	DrawGraph(0,0,m_ScenetestGraph,TRUE);
+	m_player->Draw();
+	m_map->Draw();
+
+	//DrawGraph(0,0,m_ScenetestGraph,TRUE);
+}
+
+//------------------------------------------------
+// データの読み込み
+//-------------------------------------------------
+void GameScene::Load()
+{
+
 }

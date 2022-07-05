@@ -19,8 +19,13 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	ChangeWindowMode(TRUE);
 
 
+	//// 現在のシーンを生成
+	//SceneBase* nowScene = new TitleScene();
+
 	// 現在のシーンを生成
-	SceneBase* nowScene = new TitleScene();
+	SceneManager* nowScene=new SceneManager();
+
+	nowScene->SetScene(new TitleScene);
 
 	//// プレイヤーを生成.
 	//Player* player = new Player();
@@ -51,15 +56,8 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		//sprintf(buf, "deltaTime[%5.4f]", deltaTime);
 
 		// シーン制御
-		SceneBase* tmpScene = nowScene->Update(deltaTime);
+		nowScene->Update(deltaTime);
 
-		// nowSceneとtmpSceneが異なったら
-		if (nowScene != tmpScene)
-		{
-			delete nowScene;
-
-			nowScene = tmpScene;
-		}
 
 		//// プレイヤー制御.
 		//player->Update(deltaTime);

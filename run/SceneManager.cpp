@@ -1,30 +1,47 @@
 #include "pch.h"
 #include "SceneManager.h"
 
-SceneManager::SceneManager(SceneBase::Scene in_nowScene)
-	:m_testSceneCnt(0)
+
+
+SceneManager::SceneManager()
 {
+	m_nowScene = nullptr;
 }
 
 SceneManager::~SceneManager()
 {
+	delete m_nowScene;
 }
 
-void SceneManager::SceneChange()
+void SceneManager::Update(float _deltaTime)
 {
-	if (CheckHitKey(KEY_INPUT_SPACE))
+	SceneBase* tmpScene = m_nowScene->Update(_deltaTime); // 現在のシーンを保存する
+
+	if (tmpScene != m_nowScene) // シーンが切り替わったら
 	{
-		m_testSceneCnt++;
+		delete m_nowScene;
+		m_nowScene = tmpScene;
+		m_nowScene->Load();
+	}
+}
+
+void SceneManager::Draw()
+{
+	m_nowScene->Draw();
+}
+
+void SceneManager::Sound()
+{
+}
+
+void SceneManager::SetScene(SceneBase* in_scene)
+{
+	if (m_nowScene != nullptr) // m_nowSceneが空白ではなかったら
+	{
+		delete m_nowScene;     // m_nowSceneを解放
 	}
 
-	if (m_testSceneCnt > 0)
-	{
-		return new TitleScene();
-	}
-	else
-	{
-		m_testSceneCnt = 0;
-		return this;
-	}
 
+	m_nowScene = in_scene;
+	m_nowScene->Load();
 }

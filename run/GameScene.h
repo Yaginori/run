@@ -9,14 +9,14 @@ public:
 
     SceneBase* Update(float _deltaTime);
     void Draw();
+    void Load();
 
 private:
     class Player* m_player;
     class Map* m_map;
-    class AnimationController* m_animationController;
+    class Camera* m_camera;
 
-    int m_ScenetestGraph;
-    int m_SceneTestCnt;
+    bool m_SceneChangeFlag;
 
 };
 
