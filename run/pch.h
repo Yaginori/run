@@ -11,9 +11,10 @@ using namespace std;
 // 外部依存
 #include <string>
 #include <sstream>
-#include<fstream> 
-#include "DxLib.h"
+#include <fstream> 
+#include <DxLib.h>
 
+// シーンクラス
 #include "SceneBase.h"
 #include "SceneManager.h"
 #include "TitleScene.h"
@@ -21,6 +22,7 @@ using namespace std;
 #include "ResultScene.h"
 
 #include "AnimationController.h"
+#include "Model.h"
 #include "HitChecker.h"
 #include "Camera.h"
 #include "StageManager.h"

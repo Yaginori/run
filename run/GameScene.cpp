@@ -30,7 +30,9 @@ SceneBase* GameScene::Update(float _deltaTime)
 {
 	m_player->Update(_deltaTime);
 	m_map->Update();
+	m_map->CreateMap();
 	m_camera->Update(*m_player);
+
 
 	if (CheckHitKey(KEY_INPUT_A))
 	{

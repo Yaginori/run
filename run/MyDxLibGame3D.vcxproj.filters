@@ -25,9 +25,6 @@
     <ClCompile Include="AnimationController.cpp">
       <Filter>ソース ファイル\character</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>ソース ファイル\character</Filter>
-    </ClCompile>
     <ClCompile Include="StageManager.cpp">
       <Filter>ソース ファイル\Stage</Filter>
     </ClCompile>
@@ -73,15 +70,18 @@
     <ClCompile Include="ResultScene.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>ソース ファイル\character</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>ソース ファイル\character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="AnimationController.h">
-      <Filter>ソース ファイル\character</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
       <Filter>ソース ファイル\character</Filter>
     </ClInclude>
     <ClInclude Include="StageManager.h">
@@ -128,6 +128,12 @@
     </ClInclude>
     <ClInclude Include="ResultScene.h">
       <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>ソース ファイル\character</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>ソース ファイル\character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

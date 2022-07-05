@@ -56,6 +56,7 @@ Map::~Map()
 void Map::Draw()
 {
 
+
 }
 
 void Map::DestroyObject(const int in_x, const int in_y, const int in_z)
