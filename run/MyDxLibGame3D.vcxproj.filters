@@ -74,7 +74,7 @@
       <Filter>ソース ファイル\character</Filter>
     </ClCompile>
     <ClCompile Include="Model.cpp">
-      <Filter>ソース ファイル\character</Filter>
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,7 +133,7 @@
       <Filter>ソース ファイル\character</Filter>
     </ClInclude>
     <ClInclude Include="Model.h">
-      <Filter>ソース ファイル\character</Filter>
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
