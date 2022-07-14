@@ -55,7 +55,21 @@ Map::~Map()
 //-----------------------------------------
 void Map::Draw()
 {
+	for (int i = 0; i < MAP_X; i++)
+	{
+		for (int j = 0; j < MAP_Y; j++)
+		{
+			for (int k = 0; k < MAP_Z; k++)
+			{
 
+				if (m_mapObject[i][j][k] != NULL)
+				{
+					m_mapObject[i][j][k]->Draw();
+				}
+
+			}
+		}
+	}
 
 }
 
@@ -126,12 +140,11 @@ MapObjectInitT* Map::GetMapData(const int& in_x, const int& in_y, const int& in_
 	return &m_mapData[in_x][in_y][in_z];
 }
 
-void Map::ReadMapData(const int& in_stageData)
+void Map::ReadMapData(SceneBase::Scene in_stageData)
 {
-	string fileName = "data/mapData/stage.csv";
 
 	//ファイルの読み込み
-	ifstream ifs(fileName);
+	ifstream ifs("data/mapData/stage.csv");
 	if (!ifs)
 	{
 		printfDx("マップファイルの読み込みに失敗");
@@ -143,17 +156,17 @@ void Map::ReadMapData(const int& in_stageData)
 	int cnt = 0;
 	string str;
 
+	// @@@最初はデータ入ってるくさいけど空のところまで読み込んでる？
 	while (getline(ifs, str));
 	{
 		string token;
 		istringstream stream(str);
 
-		//@@@一行のうち、文字列とコンマを分割する
+		// 文字列をコンマで区切って格納
+		// tokenに文字が入ってないから、次のstoiで変換できる情報がない
 		while (getline(stream, token, ','));
 		{
-
-			//@@@すべて文字列として読み込まれるため
-			//@@@数値は変換が必要
+			// 文字列として読み込まれたものたちを数値に変換
 			tmp = stoi(token);
 
 			m_mapData[i][j][k].kind = (MAP_KIND)tmp;

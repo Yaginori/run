@@ -52,7 +52,7 @@ public:
 		                       const int& in_y,
 		                       const int& in_z);
 	
-	void ReadMapData(const int& in_stageData);// マップデータの読み込み
+	void Map::ReadMapData(SceneBase::Scene in_stageData);// マップデータの読み込み
 
 
 private:

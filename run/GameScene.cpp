@@ -11,6 +11,8 @@ GameScene::GameScene()
 	m_player = new Player();
 	m_map = new Map();
 	m_camera = new Camera();
+
+	m_map->ReadMapData(SceneBase::Scene::e_game);
 }
 
 //------------------------------------------------
