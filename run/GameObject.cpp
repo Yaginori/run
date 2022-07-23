@@ -3,11 +3,12 @@
 #define USE_MODEL_DUPLICATE 1
 
 
-GameObject::GameObject(int sourcem_modelHandle)
-	:m_pos()
-	,hitRadius(5.0f)
+GameObject::GameObject(int sourcem_modelHandle, VECTOR in_setPos)
+	:hitRadius(5.0f)
 	,m_modelHandle(-1)
+	,m_pos(in_setPos)
 {
+
 	// ÇRÇcÉÇÉfÉãÇÃì«Ç›çûÇ›
 #if USE_MODEL_DUPLICATE
 	m_modelHandle = MV1DuplicateModel(sourcem_modelHandle);

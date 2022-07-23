@@ -18,28 +18,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	SetGraphMode(1280, 1024, 16);
 	ChangeWindowMode(TRUE);
 
-
-	//// 現在のシーンを生成
-	//SceneBase* nowScene = new TitleScene();
-
 	// 現在のシーンを生成
 	SceneManager* nowScene=new SceneManager();
 
 	nowScene->SetScene(new TitleScene);
 
-	//// プレイヤーを生成.
-	//Player* player = new Player();
-
-	//// カメラを生成.
-	//Camera* camera = new Camera();
-
-
-	//// 障害物を生成.
-	//StageManager* stageManager = new StageManager();
-	//stageManager->CreateStages();
-
-	//Enemy* enemy = new Enemy();
-	//enemy->CreateEnemys();
 
 	// 時間計測
 	int nowTime  = GetNowCount();
@@ -58,37 +41,11 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		// シーン制御
 		nowScene->Update(deltaTime);
 
-
-		//// プレイヤー制御.
-		//player->Update(deltaTime);
-
-		//// カメラ制御.
-		//camera->Update(*player);
-
-		//// 障害物制御.
-		//stageManager->Update(deltaTime);
-
-		//enemy->Update(deltaTime);
-
-		//// ヒットのチェック.
-		//HitChecker::Check(*player, *enemy);
-
 		// 画面を初期化する
 		ClearDrawScreen();
 
-		//DrawString(100, 100, buf, GetColor(255, 255, 255));
-
-
 		// 描画
 		nowScene->Draw();
-
-		//// プレイヤー描画.
-		//player->Draw();
-
-		//// 障害物描画.
-		//stageManager->Draw();
-
-		//enemy->Draw();
 
 		// 裏画面の内容を表画面に反映させる
 		ScreenFlip();
@@ -98,19 +55,6 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 
 	// シーン削除
 	delete(nowScene);
-
-	//// プレイヤーを削除.
-	//delete(player);
-
-	//// カメラを削除.
-	//delete(camera);
-
-	//// 障害物を削除.
-	//stageManager->DestroyStages();
-	//delete(stageManager);
-
-	//enemy->DestrooyEnemys();
-	//delete(enemy);
 
 	// ＤＸライブラリの後始末
 	DxLib_End();

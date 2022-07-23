@@ -6,22 +6,22 @@
 //-----------------------------------------------------------------------------
 // @brief  コンストラクタ.
 //-----------------------------------------------------------------------------
-ObstructStatic::ObstructStatic(int sourceModelHandle)
-	: GameObject(sourceModelHandle)
+ObstructStatic::ObstructStatic(int sourceModelHandle,VECTOR in_setPos)
+	: GameObject(sourceModelHandle, in_setPos)
 {
 	m_pos = VGet(0, -50, 0);
 	hitRadius = 50.0f;
 	scale = VGet(0.0f, 0.0f, 0.0f);
 }
 
-ObstructStatic::ObstructStatic(int sourceModelHandle, VECTOR _scale)
-	: GameObject(sourceModelHandle)
-{
-
-	m_pos = VGet(0, -50, 0);
-	hitRadius = 30.0f;
-	scale = _scale;
-}
+//ObstructStatic::ObstructStatic(int sourceModelHandle, VECTOR _scale)
+//	: GameObject(sourceModelHandle)
+//{
+//
+//	m_pos = VGet(0, -50, 0);
+//	hitRadius = 30.0f;
+//	scale = _scale;
+//}
 
 //-----------------------------------------------------------------------------
 // @brief  デストラクタ.

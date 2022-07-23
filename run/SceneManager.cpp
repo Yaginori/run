@@ -23,6 +23,7 @@ void SceneManager::Update(float _deltaTime)
 		m_nowScene = tmpScene;
 		m_nowScene->Load();
 	}
+
 }
 
 void SceneManager::Draw()

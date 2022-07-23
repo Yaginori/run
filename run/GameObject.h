@@ -5,7 +5,7 @@ class GameObject
 {
 
 public:
-	GameObject(int sourcem_modelHandle);
+	GameObject(int sourcem_modelHandle,VECTOR in_setPos);
 	GameObject();
 	~GameObject();
 

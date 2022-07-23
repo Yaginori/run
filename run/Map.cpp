@@ -32,11 +32,12 @@ Map::Map()
 	startPos.y = 0.0f;
 	startPos.z = 0.0f;
 
+
+
 	//#
 	//skyDome.LoadModel(SKY_DOME_HANDLE);
 	//skyDome.SetPosition(&VGet(0.0f, 0.0f, 0.0f));
 	//skyDome.Scale(VGet(SKY_DOME_SCALE, SKY_DOME_SCALE, SKY_DOME_SCALE));
-
 
 	SelectCreateMapObject[MAP_NONE] = NULL;
 	SelectCreateMapObject[MAP_FLOOR] = &Map::CreateFloor;
@@ -70,7 +71,6 @@ void Map::Draw()
 			}
 		}
 	}
-
 }
 
 void Map::DestroyObject(const int in_x, const int in_y, const int in_z)
@@ -87,21 +87,22 @@ void Map::DestroyObject(const int in_x, const int in_y, const int in_z)
 //-----------------------------------------
 void Map::Update()
 {
-	for (int i = 0; i < MAP_X; i++)
-	{
-		for (int j = 0; j < MAP_Y; j++)
-		{
-			for (int k = 0; k < MAP_Z; k++)
-			{
+	//for (int i = 0; i < MAP_X; i++)
+	//{
+	//	for (int j = 0; j < MAP_Y; j++)
+	//	{
+	//		for (int k = 0; k < MAP_Z; k++)
+	//		{
 
-				if (m_mapObject[i][j][k] != NULL)
-				{
-					DestroyObject(i, j, k);
-				}
+	//			if (m_mapObject[i][j][k] != NULL)
+	//			{
 
-			}
-		}
-	}
+
+	//			}
+
+	//		}
+	//	}
+	//}
 }
 
 //---------------------------------------
@@ -156,20 +157,18 @@ void Map::ReadMapData(SceneBase::Scene in_stageData)
 	int cnt = 0;
 	string str;
 
-	// @@@最初はデータ入ってるくさいけど空のところまで読み込んでる？
-	while (getline(ifs, str));
+	while (getline(ifs, str))
 	{
 		string token;
 		istringstream stream(str);
 
 		// 文字列をコンマで区切って格納
-		// tokenに文字が入ってないから、次のstoiで変換できる情報がない
-		while (getline(stream, token, ','));
+		while (getline(stream, token, ','))
 		{
-			// 文字列として読み込まれたものたちを数値に変換
-			tmp = stoi(token);
+				// 文字列として読み込まれたものたちを数値に変換
+				tmp = stoi(token);
 
-			m_mapData[i][j][k].kind = (MAP_KIND)tmp;
+				m_mapData[i][j][k].kind = (MAP_KIND)tmp;
 	
 		}
 
@@ -184,6 +183,8 @@ void Map::ReadMapData(SceneBase::Scene in_stageData)
 			i = (i + 1) % MAP_Z;
 		}
 	}
+
+
 }
 
 //----------------------------------------
@@ -198,19 +199,57 @@ void Map::CreateObject(const int in_x, const int in_y, const int in_z, const MAP
 		return;
 	}
 
-	//@@@計算式
-	VECTOR pos;
-	pos.x = (float)in_x * OBJECT_SIZE - (float)MAP_X * OBJECT_SIZE / 2 - OBJECT_SIZE / 2;
-	pos.y = -50.0f + 50.0f * (float)in_y;
-	pos.z = -(float)in_z * OBJECT_SIZE + (float)MAP_Z * OBJECT_SIZE / 2 + OBJECT_SIZE / 2;
+	for (int i = 0; i < LINE_STAGE_RAW; i++)
+	{
+		int* nowLine = lineMap[i];
+		for (int j = 0; j < LINE_STAGE_COL; j++)
+		{
+			// linemapに入っている数値によって障害物の種類を決定する.
+			if (nowLine[j] == 1)
+			{
 
-	//初期化情報の更新
-	//@@@初期化って一回だけかと思ってた
-	m_mapData[in_x][in_y][in_z].Init(in_kind);
+				scale = VGet(0.0f, 0.0f, 0.0f);
+				Obstructs[i][j] = new ObstructStatic(staticModelSourceHandle, scale);
+			}
+			else
+			{
+				Obstructs[i][j] = NULL;
+			}
 
-	//生成
-	//@@@ポインタとか色々ごっちゃ。種類とポジションを関連付ける…とかいう役割なんか？
-	m_mapObject[in_x][in_y][in_z] = (this->*SelectCreateMapObject[in_kind])(pos);
+			// 位置の初期化.
+			if (Obstructs[i][j] != NULL)
+			{
+				Obstructs[i][j]->SetPos(
+					VGet(
+						(STAGE_SPACE_W * j) - (STAGE_SPACE_W * LINE_STAGE_COL * 0.5f),  //x
+						-230.0f,														//y
+						(STAGE_SPACE_D * LINE_STAGE_RAW) - (STAGE_SPACE_D * i)          //z
+					)
+				);
+			}
+		}
+	}
+
+
+	////@@@計算式
+	//VECTOR pos;
+	//pos.x = (float)in_x * OBJECT_SIZE - (float)MAP_X * OBJECT_SIZE / 2 - OBJECT_SIZE / 2;
+	//pos.y = -50.0f + 50.0f * (float)in_y;
+	//pos.z = -(float)in_z * OBJECT_SIZE + (float)MAP_Z * OBJECT_SIZE / 2 + OBJECT_SIZE / 2;
+
+	////初期化情報の更新
+	////@@@初期化って一回だけかと思ってた
+	//m_mapData[in_x][in_y][in_z].Init(in_kind);
+
+	////生成
+	////@@@ポインタとか色々ごっちゃ。種類とポジションを関連付ける…とかいう役割なんか？
+	//m_mapObject[in_x][in_y][in_z] = (this->*SelectCreateMapObject[in_kind])(pos);
+
+}
+
+void Map::SetPos(const VECTOR& in_pos, int in_modelHandle)
+{
+	MV1SetPosition(in_modelHandle, in_pos);
 }
 
 //----------------------------------------

@@ -12,7 +12,6 @@ GameScene::GameScene()
 	m_map = new Map();
 	m_camera = new Camera();
 
-	m_map->ReadMapData(SceneBase::Scene::e_game);
 }
 
 //------------------------------------------------
@@ -29,6 +28,7 @@ GameScene::~GameScene()
 // §Œä
 //-------------------------------------------------
 SceneBase* GameScene::Update(float _deltaTime)
+
 {
 	m_player->Update(_deltaTime);
 	m_map->Update();
@@ -70,5 +70,7 @@ void GameScene::Draw()
 //-------------------------------------------------
 void GameScene::Load()
 {
+	m_map->ReadMapData(SceneBase::Scene::e_game);
 
+	m_map = new Map();
 }

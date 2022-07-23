@@ -15,8 +15,8 @@
 class ObstructStatic : public GameObject
 {
 public:
-	ObstructStatic(int sourcem_modelHandle);
-	ObstructStatic(int sourcem_modelHandle, VECTOR _scale);
+	ObstructStatic(int sourcem_modelHandle,VECTOR in_setPos);
+	//ObstructStatic(int sourcem_modelHandle, VECTOR _scale);
 
 	VECTOR scale;
 

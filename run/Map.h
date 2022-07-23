@@ -62,7 +62,8 @@ private:
 		              const int in_z,
 					  const MAP_KIND & in_kind);
 
-
+	// ポジションの設定
+	void SetPos(const VECTOR& in_pos, int in_modelHandle);
 
 	// 生成するオブジェクト毎の生成処理へジャンプする
 	GameObject* (Map::* SelectCreateMapObject[MAP_KIND_BASE])(const VECTOR& inStartPosition);
