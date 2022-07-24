@@ -28,8 +28,7 @@ GameObject::GameObject(int sourcem_modelHandle, VECTOR in_setPos)
 
 
 GameObject::GameObject()
-	:m_pos()
-	, hitRadius(0.0f)
+	: hitRadius(0.0f)
 {
 }
 
