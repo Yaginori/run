@@ -30,7 +30,7 @@ void Camera::Update(const Player& player)
 {
 #if !USE_LERP_CAMERA
 	// 真横からプレーヤーをずっと見続ける位置（あとで斜め後ろにしておいてね
-	pos = VGet(player.GetPos().x-4000, 200.0f, player.GetPos().z);
+	pos = VGet(player.GetPos().x-1000, 200.0f, player.GetPos().z);
 
 #else
 	// lerpを使用して実装.
