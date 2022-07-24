@@ -18,6 +18,7 @@ enum MAP_KIND
 struct MapObjectInitT
 {
 	MAP_KIND kind;
+	//vector<int> num;
 
 	//‰Šú‰»ˆ—
 	void Init(const MAP_KIND& in_kind)

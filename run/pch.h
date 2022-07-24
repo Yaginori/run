@@ -13,6 +13,7 @@ using namespace std;
 #include <sstream>
 #include <fstream> 
 #include <DxLib.h>
+#include <vector>
 
 // シーンクラス
 #include "SceneBase.h"

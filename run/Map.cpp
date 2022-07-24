@@ -168,22 +168,26 @@ void Map::ReadMapData(SceneBase::Scene in_stageData)
 				// 文字列として読み込まれたものたちを数値に変換
 				tmp = stoi(token);
 
+				// オブジェクトの種類を格納
 				m_mapData[i][j][k].kind = (MAP_KIND)tmp;
+
+				//// オブジェクトの番号を格納
+				//m_mapData[i][j][k].num.push_back(tmp);
+
 	
 		}
 
-		//@@@計算式。メモ0616に分かったことは書いたからブレイクポイント置いて見て
-		k = (k + 1) % MAP_X;
-		if (k == 0)
-		{
-			j = (j + 1) % MAP_Y;
-		}
-		if (k == 0 && j == 0)
-		{
-			i = (i + 1) % MAP_Z;
-		}
+		////@@@計算式。メモ0616に分かったことは書いたからブレイクポイント置いて見て
+		//k = (k + 1) % MAP_X;
+		//if (k == 0)
+		//{
+		//	j = (j + 1) % MAP_Y;
+		//}
+		//if (k == 0 && j == 0)
+		//{
+		//	i = (i + 1) % MAP_Z;
+		//}
 	}
-
 
 }
 
@@ -199,51 +203,56 @@ void Map::CreateObject(const int in_x, const int in_y, const int in_z, const MAP
 		return;
 	}
 
-	for (int i = 0; i < LINE_STAGE_RAW; i++)
-	{
-		int* nowLine = lineMap[i];
-		for (int j = 0; j < LINE_STAGE_COL; j++)
-		{
-			// linemapに入っている数値によって障害物の種類を決定する.
-			if (nowLine[j] == 1)
-			{
+	//for (int i = 0; i < LINE_STAGE_RAW; i++)
+	//{
+	//	int* nowLine = lineMap[i];
+	//	for (int j = 0; j < LINE_STAGE_COL; j++)
+	//	{
+	//		// linemapに入っている数値によって障害物の種類を決定する.
+	//		if (nowLine[j] == 1)
+	//		{
 
-				scale = VGet(0.0f, 0.0f, 0.0f);
-				Obstructs[i][j] = new ObstructStatic(staticModelSourceHandle, scale);
-			}
-			else
-			{
-				Obstructs[i][j] = NULL;
-			}
+	//			scale = VGet(0.0f, 0.0f, 0.0f);
+	//			Obstructs[i][j] = new ObstructStatic(staticModelSourceHandle, scale);
+	//		}
+	//		else
+	//		{
+	//			Obstructs[i][j] = NULL;
+	//		}
 
-			// 位置の初期化.
-			if (Obstructs[i][j] != NULL)
-			{
-				Obstructs[i][j]->SetPos(
-					VGet(
-						(STAGE_SPACE_W * j) - (STAGE_SPACE_W * LINE_STAGE_COL * 0.5f),  //x
-						-230.0f,														//y
-						(STAGE_SPACE_D * LINE_STAGE_RAW) - (STAGE_SPACE_D * i)          //z
-					)
-				);
-			}
-		}
-	}
+	//		// 位置の初期化.
+	//		if (Obstructs[i][j] != NULL)
+	//		{
+	//			Obstructs[i][j]->SetPos(
+	//				VGet(
+	//					(STAGE_SPACE_W * j) - (STAGE_SPACE_W * LINE_STAGE_COL * 0.5f),  //x
+	//					-230.0f,														//y
+	//					(STAGE_SPACE_D * LINE_STAGE_RAW) - (STAGE_SPACE_D * i)          //z
+	//				)
+	//			);
+	//		}
+	//	}
+	//}
 
 
-	////@@@計算式
-	//VECTOR pos;
-	//pos.x = (float)in_x * OBJECT_SIZE - (float)MAP_X * OBJECT_SIZE / 2 - OBJECT_SIZE / 2;
-	//pos.y = -50.0f + 50.0f * (float)in_y;
-	//pos.z = -(float)in_z * OBJECT_SIZE + (float)MAP_Z * OBJECT_SIZE / 2 + OBJECT_SIZE / 2;
+
+
+
+
+
+
+	//@@@計算式
+	VECTOR pos;
+	pos.x = (float)in_x * OBJECT_SIZE - (float)MAP_X * OBJECT_SIZE / 2 - OBJECT_SIZE / 2;
+	pos.y = -50.0f + 50.0f * (float)in_y;
+	pos.z = -(float)in_z * OBJECT_SIZE + (float)MAP_Z * OBJECT_SIZE / 2 + OBJECT_SIZE / 2;
 
 	////初期化情報の更新
 	////@@@初期化って一回だけかと思ってた
 	//m_mapData[in_x][in_y][in_z].Init(in_kind);
 
-	////生成
-	////@@@ポインタとか色々ごっちゃ。種類とポジションを関連付ける…とかいう役割なんか？
-	//m_mapObject[in_x][in_y][in_z] = (this->*SelectCreateMapObject[in_kind])(pos);
+	//生成
+	m_mapObject[in_x][in_y][in_z] = (this->*SelectCreateMapObject[in_kind])(pos);
 
 }
 

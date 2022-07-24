@@ -70,7 +70,8 @@ void GameScene::Draw()
 //-------------------------------------------------
 void GameScene::Load()
 {
+	m_map = new Map();
+
 	m_map->ReadMapData(SceneBase::Scene::e_game);
 
-	m_map = new Map();
 }
